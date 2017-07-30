@@ -28,6 +28,7 @@
 -(void)setImages:(NSArray *)images {
     _images = images;
     NSInteger count = images.count;
+    self.pgControl.numberOfPages = count;
     for (int i = 0; i < count; i++) {
         UIImageView *imageView = [[UIImageView alloc] init];
         imageView.image = [UIImage imageNamed:images[i]];
@@ -58,8 +59,9 @@
 -(void)layoutSubviews {
     [super layoutSubviews];
     self.scrollView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
-    NSInteger num = self.scrollView.subviews.count;
-    self.pgControl.numberOfPages = num;
+    //不能以subviews来计算，因为会把滚动条算进来
+//    NSInteger num = self.scrollView.subviews.count;
+    NSInteger num = self.images.count;
     self.scrollView.contentSize = CGSizeMake(self.frame.size.width * num, self.frame.size.height);
     for (int i = 0; i < num; i++) {
         UIImageView *imgView = self.scrollView.subviews[i];
