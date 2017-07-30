@@ -8,9 +8,10 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <UIScrollViewDelegate>
 /** scrollview*/
-@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, weak) UIScrollView *scrollView;
+@property (nonatomic, weak) UIPageControl *pgControl;
 
 @end
 
@@ -37,9 +38,20 @@
     scrollView.contentSize = CGSizeMake(count * w, 0);
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.pagingEnabled = YES;
+    UIPageControl *pgControl = [[UIPageControl alloc] init];
+    pgControl.pageIndicatorTintColor = [UIColor redColor];
+    pgControl.currentPageIndicatorTintColor = [UIColor blueColor];
+    pgControl.frame = CGRectMake(37.5, 140, 100, 30);
+    pgControl.numberOfPages = count;
+    self.pgControl = pgControl;
+    [self.view addSubview:pgControl];
+    self.scrollView.delegate = self;
 }
 
-
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    int page = (int)(self.scrollView.contentOffset.x / self.scrollView.frame.size.width + 0.5);
+    self.pgControl.currentPage = page;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
