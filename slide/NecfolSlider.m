@@ -47,7 +47,6 @@
         scrollView.delegate = self;
         pgControl.pageIndicatorTintColor = [UIColor redColor];
         pgControl.currentPageIndicatorTintColor = [UIColor blueColor];
-        pgControl.frame = CGRectMake(37.5, 90, 100, 30);
         self.scrollView = scrollView;
         self.pgControl = pgControl;
         self.scrollView.delegate = self;
@@ -59,6 +58,12 @@
 -(void)layoutSubviews {
     [super layoutSubviews];
     self.scrollView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+    // 设置pageControl
+    CGFloat pageW = 100;
+    CGFloat pageH = 20;
+    CGFloat pageX = self.frame.size.width - pageW;
+    CGFloat pageY = self.frame.size.height - pageH;
+    self.pgControl.frame = CGRectMake(pageX, pageY, pageW, pageH);
     //不能以subviews来计算，因为会把滚动条算进来
 //    NSInteger num = self.scrollView.subviews.count;
     NSInteger num = self.images.count;
