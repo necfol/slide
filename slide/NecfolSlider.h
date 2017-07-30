@@ -10,6 +10,8 @@
 
 @interface NecfolSlider : UIView
 
+@property (nonatomic, strong) NSArray *images;
+
 +(instancetype)sliderShow;
 
 @end

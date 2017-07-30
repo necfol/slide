@@ -25,19 +25,22 @@
 }
 */
 
+-(void)setImages:(NSArray *)images {
+    _images = images;
+    NSInteger count = images.count;
+    for (int i = 0; i < count; i++) {
+        UIImageView *imageView = [[UIImageView alloc] init];
+        imageView.image = [UIImage imageNamed:images[i]];
+        [self.scrollView addSubview:imageView];
+    }
+}
+
 -(instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if(self) {
         UIScrollView *scrollView = [[UIScrollView alloc] init];
         UIPageControl *pgControl = [[UIPageControl alloc] init];
         scrollView.backgroundColor = [UIColor orangeColor];
-        int count = 5;
-        for (int i = 0; i < count; i++) {
-            UIImageView *imageView = [[UIImageView alloc] init];
-            NSString *name = [NSString stringWithFormat:@"img_0%d", i];
-            imageView.image = [UIImage imageNamed:name];
-            [scrollView addSubview:imageView];
-        }
         scrollView.showsHorizontalScrollIndicator = NO;
         scrollView.pagingEnabled = YES;
         scrollView.delegate = self;
