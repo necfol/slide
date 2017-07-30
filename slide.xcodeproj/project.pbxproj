@@ -13,6 +13,7 @@
 		F1CBF6691F2DD2330078DF62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1CBF6671F2DD2330078DF62 /* Main.storyboard */; };
 		F1CBF66B1F2DD2330078DF62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1CBF66A1F2DD2330078DF62 /* Assets.xcassets */; };
 		F1CBF66E1F2DD2330078DF62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1CBF66C1F2DD2330078DF62 /* LaunchScreen.storyboard */; };
+		F1CBF67A1F2E051F0078DF62 /* NecfolSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = F1CBF6791F2E051F0078DF62 /* NecfolSlider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		F1CBF66A1F2DD2330078DF62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1CBF66D1F2DD2330078DF62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1CBF66F1F2DD2330078DF62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1CBF6781F2E051F0078DF62 /* NecfolSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NecfolSlider.h; sourceTree = "<group>"; };
+		F1CBF6791F2E051F0078DF62 /* NecfolSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NecfolSlider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				F1CBF66C1F2DD2330078DF62 /* LaunchScreen.storyboard */,
 				F1CBF66F1F2DD2330078DF62 /* Info.plist */,
 				F1CBF65E1F2DD2330078DF62 /* Supporting Files */,
+				F1CBF6781F2E051F0078DF62 /* NecfolSlider.h */,
+				F1CBF6791F2E051F0078DF62 /* NecfolSlider.m */,
 			);
 			path = slide;
 			sourceTree = "<group>";
@@ -105,6 +110,7 @@
 		F1CBF6531F2DD2330078DF62 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = Necfol;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = Necfol;
 				TargetAttributes = {
@@ -153,6 +159,7 @@
 				F1CBF6661F2DD2330078DF62 /* ViewController.m in Sources */,
 				F1CBF6631F2DD2330078DF62 /* AppDelegate.m in Sources */,
 				F1CBF6601F2DD2330078DF62 /* main.m in Sources */,
+				F1CBF67A1F2E051F0078DF62 /* NecfolSlider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
