@@ -11,6 +11,10 @@
 @interface NecfolSlider : UIView
 
 @property (nonatomic, strong) NSArray *images;
+/** currentcolor*/
+@property (nonatomic, strong) UIColor *currentColor;
+/** othercolor*/
+@property (nonatomic, strong) UIColor *otherColor;
 
 +(instancetype)sliderShow;
 

@@ -27,6 +27,8 @@
 
 -(void)setImages:(NSArray *)images {
     _images = images;
+//    重复赋值时，删除之前的view
+    [self.scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     NSInteger count = images.count;
     self.pgControl.numberOfPages = count;
     for (int i = 0; i < count; i++) {
@@ -72,6 +74,14 @@
         UIImageView *imgView = self.scrollView.subviews[i];
         imgView.frame = CGRectMake(self.frame.size.width * i, 0, self.frame.size.width, self.frame.size.height);
     }
+}
+-(void)setCurrentColor:(UIColor *)currentColor {
+    _currentColor = currentColor;
+    self.pgControl.currentPageIndicatorTintColor = currentColor;
+}
+-(void)setOtherColor:(UIColor *)otherColor {
+    _otherColor = otherColor;
+    self.pgControl.pageIndicatorTintColor = otherColor;
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     int page = (int)(self.scrollView.contentOffset.x / self.scrollView.frame.size.width + 0.5);
