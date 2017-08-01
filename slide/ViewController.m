@@ -23,20 +23,13 @@
     NecfolSlider *slider = [NecfolSlider sliderShow];
     slider.frame = CGRectMake(37.5, 30, 300, 130);
     slider.images = @[
-                      @"img_00",
-                      @"img_01"
-                      ];
-    slider.images = @[
                     @"img_00",
                     @"img_01",
                     @"img_02",
                     @"img_03",
                     @"img_04"
                   ];
-//    ,
-//    @"img_02",
-//    @"img_03",
-//    @"img_04"    slider.currentColor = [UIColor greenColor];
+    slider.currentColor = [UIColor greenColor];
     slider.otherColor = [UIColor grayColor];
     [self.view addSubview:slider];
 }

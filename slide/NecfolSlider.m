@@ -31,6 +31,12 @@
     [self.scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     NSInteger count = images.count;
     self.pgControl.numberOfPages = count;
+//    self.pgControl.hidesForSinglePage = YES;
+    if(count <= 1) {
+        self.pgControl.hidden = YES;
+    } else {
+        self.pgControl.hidden = NO;
+    }
     for (int i = 0; i < count; i++) {
         UIImageView *imageView = [[UIImageView alloc] init];
         imageView.image = [UIImage imageNamed:images[i]];
@@ -74,6 +80,14 @@
         UIImageView *imgView = self.scrollView.subviews[i];
         imgView.frame = CGRectMake(self.frame.size.width * i, 0, self.frame.size.width, self.frame.size.height);
     }
+    [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(nexPage) userInfo:nil repeats:YES];
+}
+-(void)nexPage {
+    NSInteger pagenum = self.pgControl.currentPage + 1;
+    if(pagenum == self.pgControl.numberOfPages) {
+        pagenum = 0;
+    }
+    [self.scrollView setContentOffset:CGPointMake(pagenum * self.scrollView.frame.size.width, 0) animated:YES];
 }
 -(void)setCurrentColor:(UIColor *)currentColor {
     _currentColor = currentColor;
