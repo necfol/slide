@@ -112,6 +112,8 @@
 }
 -(void)startTimer {
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(nexPage) userInfo:nil repeats:YES];
+//    将定时器添加到主线程队列中
+    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 
 }
 -(void) stopTimer {
