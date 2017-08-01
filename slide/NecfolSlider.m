@@ -12,6 +12,7 @@
 
 @property (nonatomic, weak) UIScrollView *scrollView;
 @property (nonatomic, weak) UIPageControl *pgControl;
+@property (nonatomic, strong) NSTimer *timer;
 
 @end
 
@@ -80,7 +81,7 @@
         UIImageView *imgView = self.scrollView.subviews[i];
         imgView.frame = CGRectMake(self.frame.size.width * i, 0, self.frame.size.width, self.frame.size.height);
     }
-    [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(nexPage) userInfo:nil repeats:YES];
+    [self startTimer];
 }
 -(void)nexPage {
     NSInteger pagenum = self.pgControl.currentPage + 1;
@@ -100,6 +101,23 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     int page = (int)(self.scrollView.contentOffset.x / self.scrollView.frame.size.width + 0.5);
     self.pgControl.currentPage = page;
+}
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self stopTimer];
+    
+}
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    [self startTimer];
+
+}
+-(void)startTimer {
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(nexPage) userInfo:nil repeats:YES];
+
+}
+-(void) stopTimer {
+    [self.timer invalidate];
+    self.timer = nil;
+
 }
 +(instancetype)sliderShow {
     return [[self alloc] init];
